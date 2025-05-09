@@ -1,0 +1,230 @@
+.seccion {
+  display: none; /* Ocultamos todas las secciones por defecto */
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+.seccion.activa {
+  display: block; /* Mostramos solo la sección activa */
+  opacity: 1;
+}
+
+/*CSS PARA LAS TARJETAS */
+.tarjetas {
+  display: flex;
+  padding: 12px;
+  background-color: rgba(36, 122, 215, 0.493);
+  border-radius: 10px;
+  position: sticky;
+  overflow: hidden;
+  margin: 25px;
+}
+.tarjetas img {
+  justify-content: space-around;
+  width: 50px;
+  position: relative;
+  left: 0px;
+  border-radius: 9px;
+  margin: 15px;
+  background-color: white;
+  transition: 0.6s ease-in-out;
+  flex: 1px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+.tarjetas img:hover {
+  flex: 50px;
+  cursor: pointer;
+}
+/* Teleton */
+
+/* CSS para costos de tarjetas */
+.contenedor1 {
+  padding: 30px;
+  background-color: rgba(136, 40, 204, 0.772);
+  border-radius: 0 0 10px 10px;
+  align-items: center;
+  display: flex;
+}
+.costos {
+  color: white;
+  margin: 25px 25px 25px 25px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.costos span {
+  font-size: 30px;
+  block-size: auto;
+}
+
+/* SIMPLCITY */
+.contenedor1 {
+  padding: 30px;
+  background-color: rgba(136, 40, 204, 0.772);
+  border-radius: 10px;
+  align-items: center;
+  display: flex;
+
+}
+/* AJUSTE DE IMAGENES DENTRO DE LA SECCION */
+#teleton img {
+  width: 350px;
+  margin: 50px;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+#simplicity img {
+  width: 350px;
+  margin: 50px;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+#clasica img {
+  width: 350px;
+  margin: 50px;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+#oro img {
+  width: 350px;
+  margin: 50px;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+#rewards img {
+  width: 350px;
+  margin: 50px;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+#platinum img {
+  width: 350px;
+  margin: 50px;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+#premier img {
+  width: 350px;
+  margin: 50px;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+
+.carousel-item img {
+  height: 500px;
+  border-radius: 20px;
+}
+main {
+  margin: 20px;
+}
+
+/* Beneficios y promociones */
+.beneficios,
+.promociones {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 20px;
+  margin-top: 50px;
+  margin: 20px;
+}
+
+.beneficios h4,
+.promociones h4 {
+  font-size: 40px;
+  color: #004080;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  
+}
+
+.beneficios ul li,
+.promociones ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.beneficios ul li span,
+.promociones ul li span {
+  margin: 10px 0;
+  color: #555;
+  font-size: 25px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .contenedor1 {
+    padding: 15px;
+  }
+
+  .beneficios h4,
+  .promociones h4 {
+    font-size: 16px;
+  }
+
+  .beneficios ul span,
+  .promociones ul span {
+    font-size: 12px;
+  }
+}
+.containerInfo {
+  width: auto;
+  display: flex;
+}
+
+
+/* Estilos generales para el footer */
+footer {
+  background-color: #333; /* Color de fondo oscuro */
+  color: white; /* Color del texto */
+  padding: 20px 0; /* Espaciado dentro del footer */
+  text-align: center; /* Alineación del texto al centro */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto; /* Centra el contenido */
+  padding: 0 20px;
+}
+
+/* Estilos para los enlaces */
+footer a {
+  color: #fff;
+  text-decoration: none; /* Elimina el subrayado */
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color: #f1c40f; /* Color dorado al pasar el ratón */
+}
+
+/* Estilo para el menú de navegación */
+footer nav ul {
+  list-style: none; /* Elimina los puntos de lista */
+  padding: 0;
+}
+
+footer nav ul li {
+  display: inline-block;
+  margin: 0 15px; /* Espaciado entre los elementos */
+}
+
+/* Estilo para los enlaces de redes sociales */
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  font-size: 18px; /* Tamaño de la fuente */
+  margin: 0 15px;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  footer {
+    text-align: left;
+  }
+
+  footer nav ul li {
+    display: block;
+    margin: 5px 0; /* Apilar los elementos en pantallas pequeñas */
+  }
+}
