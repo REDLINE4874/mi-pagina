@@ -1,14 +1,14 @@
+/* Estilos base (ya existentes) */
 .seccion {
-  display: none; /* Ocultamos todas las secciones por defecto */
+  display: none;
   opacity: 0;
   transition: opacity 0.1s ease;
 }
 .seccion.activa {
-  display: block; /* Mostramos solo la sección activa */
+  display: block;
   opacity: 1;
 }
 
-/*CSS PARA LAS TARJETAS */
 .tarjetas {
   display: flex;
   padding: 12px;
@@ -34,9 +34,7 @@
   flex: 50px;
   cursor: pointer;
 }
-/* Teleton */
 
-/* CSS para costos de tarjetas */
 .contenedor1 {
   padding: 30px;
   background-color: rgba(136, 40, 204, 0.772);
@@ -56,52 +54,13 @@
   block-size: auto;
 }
 
-/* SIMPLCITY */
-.contenedor1 {
-  padding: 30px;
-  background-color: rgba(136, 40, 204, 0.772);
-  border-radius: 10px;
-  align-items: center;
-  display: flex;
-
-}
-/* AJUSTE DE IMAGENES DENTRO DE LA SECCION */
-#teleton img {
-  width: 350px;
-  margin: 50px;
-  border-radius: 20px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
-}
-#simplicity img {
-  width: 350px;
-  margin: 50px;
-  border-radius: 20px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
-}
-#clasica img {
-  width: 350px;
-  margin: 50px;
-  border-radius: 20px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
-}
-#oro img {
-  width: 350px;
-  margin: 50px;
-  border-radius: 20px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
-}
-#rewards img {
-  width: 350px;
-  margin: 50px;
-  border-radius: 20px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
-}
-#platinum img {
-  width: 350px;
-  margin: 50px;
-  border-radius: 20px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
-}
+/* Imágenes de tarjetas */
+#teleton img,
+#simplicity img,
+#clasica img,
+#oro img,
+#rewards img,
+#platinum img,
 #premier img {
   width: 350px;
   margin: 50px;
@@ -133,7 +92,6 @@ main {
   color: #004080;
   padding-bottom: 5px;
   margin-bottom: 10px;
-  
 }
 
 .beneficios ul li,
@@ -149,82 +107,135 @@ main {
   font-size: 25px;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .contenedor1 {
-    padding: 15px;
-  }
-
-  .beneficios h4,
-  .promociones h4 {
-    font-size: 16px;
-  }
-
-  .beneficios ul span,
-  .promociones ul span {
-    font-size: 12px;
-  }
-}
 .containerInfo {
   width: auto;
   display: flex;
 }
 
-
-/* Estilos generales para el footer */
+/* Footer */
 footer {
-  background-color: #333; /* Color de fondo oscuro */
-  color: white; /* Color del texto */
-  padding: 20px 0; /* Espaciado dentro del footer */
-  text-align: center; /* Alineación del texto al centro */
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
 }
 
 .footer-container {
   max-width: 1200px;
-  margin: 0 auto; /* Centra el contenido */
+  margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Estilos para los enlaces */
-footer a {
-  color: #fff;
-  text-decoration: none; /* Elimina el subrayado */
-  margin: 0 10px;
-}
-
-footer a:hover {
-  color: #f1c40f; /* Color dorado al pasar el ratón */
-}
-
-/* Estilo para el menú de navegación */
-footer nav ul {
-  list-style: none; /* Elimina los puntos de lista */
-  padding: 0;
-}
-
-footer nav ul li {
-  display: inline-block;
-  margin: 0 15px; /* Espaciado entre los elementos */
-}
-
-/* Estilo para los enlaces de redes sociales */
-.social-links {
-  margin-top: 10px;
-}
-
-.social-links a {
-  font-size: 18px; /* Tamaño de la fuente */
-  margin: 0 15px;
-}
-
-/* Responsividad para pantallas pequeñas */
-@media screen and (max-width: 768px) {
-  footer {
-    text-align: left;
+/* Media queries para responsividad */
+@media (max-width: 992px) {
+  /* Tablet */
+  .tarjetas img {
+    width: 45px;
+    margin: 10px;
   }
+  
+  .contenedor1 {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .containerInfo {
+    flex-wrap: wrap;
+  }
+}
 
-  footer nav ul li {
-    display: block;
-    margin: 5px 0; /* Apilar los elementos en pantallas pequeñas */
+@media (max-width: 768px) {
+  /* Móviles grandes */
+  .navbar-brand img {
+    width: 120px;
+    height: auto;
+  }
+  
+  .tarjetas {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    padding: 8px;
+  }
+  
+  .tarjetas img {
+    width: 40px;
+    margin: 8px;
+  }
+  
+  .tarjetas img:hover {
+    flex: none;
+    transform: scale(1.1);
+  }
+  
+  .carousel-item img {
+    height: 250px;
+  }
+  
+  .contenedor1 {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .contenedor1 img {
+    width: 250px !important;
+    margin: 15px auto !important;
+  }
+  
+  .costos {
+    margin: 10px;
+    font-size: 16px;
+  }
+  
+  .costos span {
+    font-size: 20px;
+  }
+  
+  .containerInfo {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .beneficios, .promociones {
+    margin: 15px 0;
+    width: 100%;
+  }
+  
+  .beneficios h4, .promociones h4 {
+    font-size: 28px;
+  }
+  
+  .beneficios ul li span, .promociones ul li span {
+    font-size: 18px;
+  }
+  
+  .containerInfo img {
+    margin: 10px 0 !important;
+    width: 100px !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Móviles pequeños */
+  .carousel-item img {
+    height: 180px;
+  }
+  
+  .contenedor1 img {
+    width: 200px !important;
+  }
+  
+  .beneficios h4, .promociones h4 {
+    font-size: 24px;
+  }
+  
+  .beneficios ul li span, .promociones ul li span {
+    font-size: 16px;
+  }
+  
+  .tarjetas img {
+    width: 35px;
+    margin: 6px;
   }
 }
