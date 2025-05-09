@@ -14,25 +14,31 @@
   padding: 12px;
   background-color: rgba(36, 122, 215, 0.493);
   border-radius: 10px;
-  position: sticky;
-  overflow: hidden;
-  margin: 25px;
-}
-.tarjetas img {
-  justify-content: space-around;
-  width: 50px;
-  position: relative;
-  left: 0px;
-  border-radius: 9px;
+  overflow-x: auto; /* Permite scroll horizontal en móviles */
   margin: 15px;
-  background-color: white;
-  transition: 0.6s ease-in-out;
-  flex: 1px;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+  scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+  -ms-overflow-style: none; /* Oculta la barra de scroll en IE/Edge */
 }
+
+.tarjetas::-webkit-scrollbar {
+  display: none; /* Oculta la barra de scroll en Chrome/Safari */
+}
+
+.tarjetas img {
+  flex: 0 0 auto; /* Evita que las imágenes se estiren */
+  width: 50px;
+  height: 32px; /* Altura fija para consistencia */
+  border-radius: 9px;
+  margin: 0 10px;
+  background-color: white;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+  object-fit: contain; /* Asegura que la imagen mantenga sus proporciones */
+}
+
 .tarjetas img:hover {
-  flex: 50px;
-  cursor: pointer;
+  transform: scale(1.2); /* Reemplaza el cambio de flex por transform */
+  z-index: 1; /* Asegura que la imagen agrandada se vea por encima */
 }
 
 .contenedor1 {
