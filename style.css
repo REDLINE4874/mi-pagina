@@ -1,27 +1,15 @@
-/* Añade esto al inicio de tu CSS */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-}
-
-/* Modifica las reglas de .seccion */
+/* Estilos generales */
 .seccion {
     display: none;
     opacity: 0;
+    transition: opacity 0.3s ease;
     width: 100%;
-    position: relative;
-    transition: none; /* Eliminamos transiciones que pueden causar problemas */
 }
 
 .seccion.activa {
     display: block;
     opacity: 1;
-    animation: none; /* Eliminamos animaciones */
-}
-
-/* Asegurar que el contenedor principal no cause problemas */
-.container-lg {
-    overflow: hidden;
+    animation: fadeIn 0.5s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -93,7 +81,6 @@ html, body {
         object-fit: contain;
     }
 }
-
 .contenedor1 {
   padding: 30px;
   background-color: rgba(136, 40, 204, 0.772);
