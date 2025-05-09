@@ -1,13 +1,14 @@
-function mostrarSeccion(id) {
-  // Ocultar todas las secciones
-  const secciones = document.querySelectorAll('.seccion');
-  secciones.forEach(seccion => {
-      seccion.classList.remove('activa');
-  });
+document.addEventListener('DOMContentLoaded', function() {
+  const tarjetas = document.querySelectorAll('.tarjetas img');
   
-  // Mostrar la sección activa
-  const seccionActiva = document.getElementById(id);
-  if (seccionActiva) {
-      seccionActiva.classList.add('activa');
-  }
-}
+  // Para dispositivos táctiles
+  tarjetas.forEach(tarjeta => {
+    tarjeta.addEventListener('touchstart', function() {
+      this.classList.add('touched');
+    });
+    
+    tarjeta.addEventListener('touchend', function() {
+      setTimeout(() => this.classList.remove('touched'), 300);
+    });
+  });
+});
