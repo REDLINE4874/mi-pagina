@@ -9,36 +9,49 @@
   opacity: 1;
 }
 
+/* Estilos para las tarjetas en la sección principal */
 .tarjetas {
   display: flex;
   padding: 12px;
   background-color: rgba(36, 122, 215, 0.493);
   border-radius: 10px;
-  overflow-x: auto; /* Permite scroll horizontal en móviles */
+  overflow-x: auto;
   margin: 15px;
-  scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
-  -ms-overflow-style: none; /* Oculta la barra de scroll en IE/Edge */
-}
-
-.tarjetas::-webkit-scrollbar {
-  display: none; /* Oculta la barra de scroll en Chrome/Safari */
+  scroll-snap-type: x mandatory;
+  gap: 10px; /* Espacio entre tarjetas */
 }
 
 .tarjetas img {
-  flex: 0 0 auto; /* Evita que las imágenes se estiren */
-  width: 50px;
-  height: 32px; /* Altura fija para consistencia */
+  flex: 0 0 auto;
+  width: 80px; /* Tamaño base más grande */
+  height: 50px;
   border-radius: 9px;
-  margin: 0 10px;
   background-color: white;
   transition: transform 0.3s ease;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
-  object-fit: contain; /* Asegura que la imagen mantenga sus proporciones */
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+  object-fit: contain;
+  scroll-snap-align: start;
 }
 
 .tarjetas img:hover {
-  transform: scale(1.2); /* Reemplaza el cambio de flex por transform */
-  z-index: 1; /* Asegura que la imagen agrandada se vea por encima */
+  transform: scale(1.1);
+}
+
+/* Media query para móviles */
+@media (max-width: 768px) {
+  .tarjetas {
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .tarjetas img {
+    width: 70px; /* Tamaño ligeramente menor en móviles */
+    height: 45px;
+  }
+  
+  .tarjetas img:hover {
+    transform: scale(1.15);
+  }
 }
 
 .contenedor1 {
