@@ -245,3 +245,7 @@ footer {
     margin: 6px;
   }
 }
+/* Añade al CSS */
+.tarjetas img.touched {
+  transform: scale(1.3);
+}
