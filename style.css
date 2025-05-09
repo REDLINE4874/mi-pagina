@@ -1,36 +1,66 @@
 /* Estilos base (ya existentes) */
+/* Secciones */
 .seccion {
   display: none;
   opacity: 0;
-  transition: opacity 0.1s ease;
+  transition: opacity 0.3s ease;
+  width: 100%;
 }
+
 .seccion.activa {
   display: block;
   opacity: 1;
+  animation: fadeIn 0.5s ease forwards;
 }
 
-/* Estilos para las tarjetas en la sección principal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Tarjetas de navegación */
 .tarjetas {
   display: flex;
   padding: 12px;
   background-color: rgba(36, 122, 215, 0.493);
   border-radius: 10px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Mejor scroll en iOS */
   margin: 15px;
   scroll-snap-type: x mandatory;
-  gap: 10px; /* Espacio entre tarjetas */
 }
 
 .tarjetas img {
   flex: 0 0 auto;
-  width: 80px; /* Tamaño base más grande */
+  width: 80px;
   height: 50px;
   border-radius: 9px;
+  margin: 0 10px;
   background-color: white;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-  object-fit: contain;
   scroll-snap-align: start;
+  cursor: pointer;
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+  .seccion.activa {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .tarjetas {
+    padding: 10px;
+    margin: 10px 5px;
+  }
+  
+  .tarjetas img {
+    width: 70px;
+    height: 45px;
+  margin: 0 8px;
+  transform: none !important; /* Elimina transformaciones que puedan interferir */
+  }
 }
 
 .tarjetas img:hover {
