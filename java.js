@@ -1,96 +1,127 @@
-// Versión definitiva - Solución robusta para todos los dispositivos
+// Versión optimizada y probada
 document.addEventListener('DOMContentLoaded', function() {
-    // Sistema de gestión de secciones
-    const gestionarSecciones = {
-        // Mostrar sección con verificación completa
-        mostrar: function(id) {
-            if (!id) return;
+    // Sistema mejorado de gestión de secciones
+    const sectionManager = {
+        currentSection: null,
+        
+        // Mostrar sección con validaciones
+        showSection: function(id) {
+            if (!id || this.currentSection === id) return;
             
-            // Ocultar todas las secciones primero
-            document.querySelectorAll('.seccion').forEach(sec => {
-                sec.classList.remove('activa');
-                sec.style.display = 'none';
-            });
+            // Ocultar sección actual
+            if (this.currentSection) {
+                const current = document.getElementById(this.currentSection);
+                if (current) {
+                    current.classList.remove('activa');
+                    current.style.display = 'none';
+                }
+            }
             
-            // Mostrar la sección solicitada
-            const seccion = document.getElementById(id);
-            if (seccion) {
-                seccion.style.display = 'block';
+            // Mostrar nueva sección
+            const newSection = document.getElementById(id);
+            if (newSection) {
+                newSection.style.display = 'block';
+                // Pequeño retraso para asegurar el renderizado
                 setTimeout(() => {
-                    seccion.classList.add('activa');
-                    this.ajustarScroll(seccion);
-                }, 10);
+                    newSection.classList.add('activa');
+                    this.scrollToSection(newSection);
+                    this.currentSection = id;
+                }, 30);
             } else {
-                // Fallback a la sección de inicio
-                this.mostrar('inicio');
+                // Fallback a inicio si la sección no existe
+                this.showSection('inicio');
             }
         },
         
-        // Ajustar scroll según dispositivo
-        ajustarScroll: function(seccion) {
-            const esMovil = window.innerWidth <= 768;
-            const posicion = esMovil ? 0 : seccion.offsetTop - 20;
+        // Scroll adecuado según dispositivo
+        scrollToSection: function(section) {
+            const isMobile = window.innerWidth <= 768;
+            const position = isMobile ? 0 : section.offsetTop - 20;
             
-            // Scroll suave con polyfill si es necesario
-            if ('scrollBehavior' in document.documentElement.style) {
-                window.scrollTo({
-                    top: posicion,
-                    behavior: 'smooth'
-                });
-            } else {
-                // Fallback para navegadores antiguos
-                window.scrollTo(0, posicion);
-            }
+            window.scrollTo({
+                top: position,
+                behavior: 'smooth'
+            });
         },
         
-        // Inicializar sistema de tarjetas
-        iniciarTarjetas: function() {
-            const tarjetas = document.querySelectorAll('.tarjetas img');
+        // Inicializar tarjetas
+        initCards: function() {
+            const cards = document.querySelectorAll('.tarjetas img');
             
-            tarjetas.forEach(tarjeta => {
-                // Obtener ID de sección de forma segura
-                const targetId = tarjeta.dataset.target || 
-                               (tarjeta.onclick ? 
-                                tarjeta.onclick.toString().match(/'([^']+)'/)[1] : 
-                                null);
+            cards.forEach(card => {
+                // Obtener target de forma segura
+                const target = card.dataset.target || 
+                             (card.getAttribute('onclick') ? 
+                              card.getAttribute('onclick').match(/'([^']+)'/)[1] : 
+                              null;
                 
-                if (!targetId) return;
+                if (!target) return;
                 
-                // Limpiar eventos anteriores
-                tarjeta.onclick = null;
-                tarjeta.ontouchend = null;
+                // Limpiar cualquier evento previo
+                card.removeEventListener('click', this.cardClickHandler);
+                card.removeEventListener('touchend', this.cardClickHandler);
                 
-                // Establecer atributo data-target
-                tarjeta.dataset.target = targetId;
+                // Establecer data-target si no existe
+                if (!card.dataset.target) {
+                    card.dataset.target = target;
+                }
                 
-                // Single event listener para todos los dispositivos
-                tarjeta.addEventListener('pointerdown', (e) => {
+                // Eliminar onclick del HTML
+                card.removeAttribute('onclick');
+                
+                // Manejador único para ambos eventos
+                const handler = (e) => {
                     e.preventDefault();
-                    this.mostrar(targetId);
+                    this.showSection(target);
                     
                     // Feedback visual
-                    tarjeta.style.transform = 'scale(1.1)';
+                    card.style.transform = 'scale(1.1)';
                     setTimeout(() => {
-                        tarjeta.style.transform = '';
+                        card.style.transform = '';
                     }, 200);
-                });
+                };
+                
+                // Asignar ambos eventos
+                card.addEventListener('click', handler);
+                card.addEventListener('touchend', handler);
             });
         }
     };
     
-    // Inicialización completa
-    setTimeout(() => {
-        gestionarSecciones.mostrar('inicio');
-        gestionarSecciones.iniciarTarjetas();
-    }, 50);
+    // Inicialización con verificación de carga completa
+    function initialize() {
+        // Esperar a que todo el DOM esté listo
+        setTimeout(() => {
+            sectionManager.initCards();
+            sectionManager.showSection('inicio');
+            
+            // Forzar redibujado en móviles
+            if (window.innerWidth <= 768) {
+                document.body.style.display = 'none';
+                document.body.offsetHeight; // Trigger reflow
+                document.body.style.display = '';
+            }
+        }, 100);
+    }
+    
+    // Iniciar cuando el DOM esté listo
+    if (document.readyState === 'complete') {
+        initialize();
+    } else {
+        document.addEventListener('readystatechange', () => {
+            if (document.readyState === 'complete') {
+                initialize();
+            }
+        });
+    }
     
     // Manejar cambios de tamaño
     window.addEventListener('resize', function() {
-        const activa = document.querySelector('.seccion.activa');
-        if (activa) {
-            setTimeout(() => {
-                gestionarSecciones.ajustarScroll(activa);
-            }, 100);
+        if (sectionManager.currentSection) {
+            const section = document.getElementById(sectionManager.currentSection);
+            if (section) {
+                sectionManager.scrollToSection(section);
+            }
         }
     });
 });
