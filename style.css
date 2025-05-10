@@ -26,7 +26,7 @@
         padding: 20px;
         margin: 30px auto;
         max-width: 90%;
-        background-color: rgba(1, 224, 253, 0.76);
+        background-color: rgba(0, 67, 83, 0.877);
         border-radius: 10px;
         overflow-x: auto;
         scrollbar-width: none;
@@ -62,7 +62,7 @@
         justify-content: flex-start;
         padding: 12px;
         margin: 15px 10px;
-        background-color: rgba(36, 122, 215, 0.493);
+        background-color: rgba(0, 67, 83, 0.877);
         border-radius: 10px;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
