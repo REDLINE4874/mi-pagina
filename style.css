@@ -42,7 +42,7 @@
         height: 63px;
         margin: 0 15px;
         border-radius: 9px;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0);
         transition: transform 0.3s ease;
         filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
         cursor: pointer;
@@ -75,7 +75,7 @@
         height: 44px;
         margin: 0 10px;
         border-radius: 9px;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0);
         filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
         scroll-snap-align: start;
         object-fit: contain;
